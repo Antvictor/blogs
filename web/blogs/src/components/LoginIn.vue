@@ -1,9 +1,13 @@
 <template>
-      <el-container style="height: 100vh;">
-        <el-aside width="200px" style="background-color: #f0f2f5;">
-          <!-- 可以加入 logo 或者侧边栏内容 -->
+      <el-container style="height: 100vh; width: 100%; overflow: hidden;">
+        <el-aside width="50%" style="background-color: #f0f2f5; 
+        display: flex; align-content: center;justify-content: center;">
+          <img
+            :src= "logo"
+            mode="scaleToFill"
+            style="max-width: 100%; width: auto;"
+          />
         </el-aside>
-    
         <el-main style="display: flex; justify-content: center; align-items: center;">
           <el-card :body-style="{ padding: '20px' }" style="width: 400px;">
             <h2 style="text-align: center;">登录</h2>
@@ -30,8 +34,11 @@
     <script lang="ts">
     import { defineComponent, ref } from 'vue';
     import axios from './axios';
-    import { ElForm, ElFormItem, ElInput, ElButton, ElContainer, ElMain, ElAside, ElCard } from 'element-plus';
+    import { ElForm} from 'element-plus';
+    import logo from "@/assets/image/logo.png";
+
     
+//     const logoUrl = logo;
     interface FormData {
       username: string;
       password: string;
@@ -39,16 +46,7 @@
     
     export default defineComponent({
       name: 'LoginIn',
-      components: {
-        ElForm,
-        ElFormItem,
-        ElInput,
-        ElButton,
-        ElContainer,
-        ElMain,
-        ElAside,
-        ElCard
-      },
+    
       setup() {
         const form = ref<FormData>({
           username: '',
@@ -98,7 +96,8 @@
           formLabelWidth,
           usernameRules,
           passwordRules,
-          handleLogin
+          handleLogin,
+          logo
         };
       }
     });
