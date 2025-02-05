@@ -4,11 +4,9 @@ import LoginIn from './components/LoginIn.vue'
 
 <template>
   <!-- <main> -->
-    <LoginIn/>
-    
+    <router-view></router-view>
   <!-- </main> -->
 </template>
 
 <style scoped>
-
 </style>

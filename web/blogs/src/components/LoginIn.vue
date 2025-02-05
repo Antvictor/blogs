@@ -36,6 +36,7 @@
     import axios from './axios';
     import { ElForm} from 'element-plus';
     import logo from "@/assets/image/logo.png";
+    import { useRouter } from 'vue-router';
 
     
 //     const logoUrl = logo;
@@ -67,7 +68,7 @@
         ];
     
         // 登录请求
-        
+        const router = useRouter();
         const handleLogin = (): void => {
           formRef.value?.validate((valid: boolean) => {
             if (valid) {
@@ -79,6 +80,7 @@
               .then((response) => {
                 console.log('登录成功', response.data);
                 // 根据返回数据做相关操作，比如跳转页面
+                router.push({name: 'ManageBlog'})
               })
               .catch((error) => {
                 console.error('登录失败', error);
